@@ -1,0 +1,50 @@
+{
+	"name": "unstated-debug",
+	"version": "0.0.0",
+	"description": "Debug your Unstated containers with ease",
+	"license": "MIT",
+	"repository": "sindresorhus/unstated-debug",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"engines": {
+		"node": ">=8"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"unstated",
+		"debug",
+		"container",
+		"containers",
+		"react",
+		"state",
+		"component",
+		"debugging",
+		"debuggable",
+		"inspect",
+		"devtools"
+	],
+	"dependencies": {
+		"deep-object-diff": "^1.1.0"
+	},
+	"devDependencies": {
+		"ava": "*",
+		"browser-env": "^3.2.5",
+		"react": "^16.3.0",
+		"unstated": "^1.2.0",
+		"xo": "*"
+	},
+	"xo": {
+		"envs": [
+			"node",
+			"browser"
+		]
+	}
+}
