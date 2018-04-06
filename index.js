@@ -3,9 +3,9 @@ const {detailedDiff} = require('deep-object-diff');
 
 module.exports = options => {
 	options = {
-		...options,
 		isEnabled: true,
-		logStateChanges: true
+		logStateChanges: true,
+		...options
 	};
 
 	return Container => {
