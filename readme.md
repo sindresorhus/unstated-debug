@@ -52,11 +52,7 @@ The object contains the following properties:
 
 ## API
 
-### unstatedDebug([options])
-
-#### options
-
-Type: `Object`
+### UNSTATED
 
 ##### isEnabled
 
