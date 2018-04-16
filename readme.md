@@ -19,21 +19,21 @@ In the root of your app, import `unstated-debug`:
 
 ```js
 import React from 'react';
-import { render } from 'react-dom';
-import { Provide } from 'unstated';
-import App from './components/App';
+import {render} from 'react-dom';
+import {Provide} from 'unstated';
 import UNSTATED from 'unstated-debug';
+import App from './components/App';
 
-UNSTATED.isEnabled = true;
-UNSTATED.logStateChanges = true;
+UNSTATED.logStateChanges = false;
 
 render(
-  <Provide>
-    <App/>
-  </Provide>,
-  document.getElementById('root')
+	<Provide>
+		<App/>
+	</Provide>,
+	document.querySelector('#root')
 );
 ```
+
 
 ## Usage
 
