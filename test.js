@@ -1,11 +1,8 @@
 import test from 'ava';
-import browserEnv from 'browser-env';
 import {Container} from 'unstated';
 import m from '.';
 
-browserEnv();
-
-class FixtureContainer extends m()(Container) {
+class FixtureContainer extends Container {
 	constructor() {
 		super();
 
@@ -22,6 +19,7 @@ test('main', t => {
 });
 
 test('exposes window global', t => {
+	t.is(m, window.UNSTATED);
 	t.is(typeof window.UNSTATED, 'object');
 	t.true(window.UNSTATED.containers.FixtureContainer.state.foo);
 });

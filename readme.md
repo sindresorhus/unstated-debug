@@ -15,52 +15,25 @@ $ npm install unstated-debug
 
 ## Setup
 
-###### Before
+In the root of your app, import `unstated-debug`:
 
 ```js
-// AppContainer.js
-import {Container} from 'unstated';
+import React from 'react';
+import { render } from 'react-dom';
+import { Provide } from 'unstated';
+import App from './components/App';
+import UNSTATED from 'unstated-debug';
 
-class AppContainer extends Container {
-	// …
-}
+UNSTATED.isEnabled = true;
+UNSTATED.logStateChanges = true;
+
+render(
+  <Provide>
+    <App/>
+  </Provide>,
+  document.getElementById('root')
+);
 ```
-
-###### After
-
-```js
-// Container.js
-import {Container} from 'unstated';
-import unstatedDebug from 'unstated-debug';
-
-export default unstatedDebug()(Container);
-```
-
-```js
-// AppContainer.js
-import Container from './Container';
-
-class AppContainer extends Container {
-	// …
-}
-```
-
-This will make all your containers debuggable.
-
-You can also make only individual containers debuggable:
-
-```js
-// AppContainer.js
-import {Container} from 'unstated';
-import unstatedDebug from 'unstated-debug';
-
-const makeDebuggable = unstatedDebug();
-
-class AppContainer extends makeDebuggable(Container) {
-	// …
-}
-```
-
 
 ## Usage
 
@@ -79,11 +52,7 @@ The object contains the following properties:
 
 ## API
 
-### unstatedDebug([options])
-
-#### options
-
-Type: `Object`
+### UNSTATED
 
 ##### isEnabled
 
