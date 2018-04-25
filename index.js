@@ -4,6 +4,7 @@ const {__SUPER_SECRET_CONTAINER_DEBUG_HOOK__} = require('unstated');
 
 const UNSTATED = {
 	isEnabled: true,
+	isCollapsed: false,
 	logStateChanges: true,
 	containers: {},
 	get states() {
@@ -39,7 +40,8 @@ __SUPER_SECRET_CONTAINER_DEBUG_HOOK__(container => {
 		const {state} = container;
 		const diff = detailedDiff(prevState, state);
 
-		console.group(name);
+		const group = UNSTATED.isCollapsed ? console.groupCollapsed : console.group;
+		group(name);
 
 		if (diff.added) {
 			console.log('Added\n', diff.added);
