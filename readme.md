@@ -45,6 +45,7 @@ The object contains the following properties:
 
 - `isEnabled` - Same as the below option, but you can change it after init.
 - `logStateChanges` - Same as the below option, but you can change it after init.
+- `isCollapsed` - Collapse logs by default.
 - `containers` - Your containers.
 - `states` - The state objects of your containers.
 - `logState()` - Logs the current state of your containers.
