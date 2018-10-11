@@ -20,16 +20,16 @@ In the root of your app, import `unstated-debug`:
 ```js
 import React from 'react';
 import {render} from 'react-dom';
-import {Provide} from 'unstated';
+import {Provider} from 'unstated';
 import UNSTATED from 'unstated-debug';
 import App from './components/App';
 
 UNSTATED.logStateChanges = false;
 
 render(
-	<Provide>
+	<Provider>
 		<App/>
-	</Provide>,
+	</Provider>,
 	document.querySelector('#root')
 );
 ```
