@@ -43,15 +43,17 @@ __SUPER_SECRET_CONTAINER_DEBUG_HOOK__(container => {
 		const group = UNSTATED.isCollapsed ? console.groupCollapsed : console.group;
 		group(name);
 
-		if (diff.added) {
+		const hasChanges = obj => Object.keys(obj).length > 0;
+
+		if (hasChanges(diff.added)) {
 			console.log('Added\n', diff.added);
 		}
 
-		if (diff.updated) {
+		if (hasChanges(diff.updated)) {
 			console.log('Updated\n', diff.updated);
 		}
 
-		if (diff.deleted) {
+		if (hasChanges(diff.deleted)) {
 			console.log('Deleted\n', diff.deleted);
 		}
 
