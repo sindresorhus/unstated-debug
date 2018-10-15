@@ -1,6 +1,6 @@
 {
 	"name": "unstated-debug",
-	"version": "0.3.1",
+	"version": "0.3.2",
 	"description": "Debug your Unstated containers with ease",
 	"license": "MIT",
 	"repository": "sindresorhus/unstated-debug",
