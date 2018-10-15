@@ -65,6 +65,7 @@ __SUPER_SECRET_CONTAINER_DEBUG_HOOK__(container => {
 		prevState = state;
 	});
 });
-
-window.UNSTATED = UNSTATED;
+if (typeof window !== 'undefined') {
+	window.UNSTATED = UNSTATED;
+}
 module.exports = UNSTATED;
