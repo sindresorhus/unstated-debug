@@ -13,10 +13,11 @@
 		"node": ">=8"
 	},
 	"scripts": {
-		"test": "xo && ava"
+		"test": "xo && ava && tsd-check"
 	},
 	"files": [
-		"index.js"
+		"index.js",
+		"index.d.ts"
 	],
 	"keywords": [
 		"unstated",
@@ -38,6 +39,7 @@
 		"ava": "*",
 		"browser-env": "^3.2.5",
 		"react": "^16.3.0",
+		"tsd-check": "^0.6.0",
 		"unstated": "^2.0.2",
 		"xo": "*"
 	},
@@ -48,6 +50,9 @@
 		"envs": [
 			"node",
 			"browser"
+		],
+		"ignores": [
+			"*.ts"
 		]
 	},
 	"ava": {
