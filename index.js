@@ -12,6 +12,7 @@ const UNSTATED = {
 		for (const [key, value] of Object.entries(this.containers)) {
 			ret[key] = value.state;
 		}
+
 		return ret;
 	},
 	logState() {
@@ -68,4 +69,5 @@ __SUPER_SECRET_CONTAINER_DEBUG_HOOK__(container => {
 if (typeof window !== 'undefined') {
 	window.UNSTATED = UNSTATED;
 }
+
 module.exports = UNSTATED;
