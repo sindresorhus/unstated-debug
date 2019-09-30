@@ -45,7 +45,7 @@ The object contains the following properties:
 
 - `isEnabled` - Same as the below option, but you can change it after init.
 - `logStateChanges` - Same as the below option, but you can change it after init.
-- `isCollapsed` - Collapse logs by default.
+- `isCollapsed` - Collapse logs. (Default: false)
 - `containers` - Your containers.
 - `states` - The state objects of your containers.
 - `logState()` - Logs the current state of your containers.
@@ -72,8 +72,3 @@ Default: `true`
 Logs a diff for each state change to the containers. This gives you a live insight into state changes in your app.
 
 <img src="screenshot-diff.png" width="400">
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)

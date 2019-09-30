@@ -1,35 +1,68 @@
-import { Container } from "unstated";
+import {Container} from 'unstated';
 
+/**
+When enabled, it exposes a global object `UNSTATED` which you can use in DevTools to explore the containers and their state.
+
+In the root of your app, import `unstated-debug`:
+
+@example
+```
+import React from 'react';
+import {render} from 'react-dom';
+import {Provider} from 'unstated';
+import UNSTATED from 'unstated-debug';
+import App from './components/App';
+
+UNSTATED.logStateChanges = false;
+
+render(
+	<Provider>
+		<App/>
+	</Provider>,
+	document.querySelector('#root')
+);
+```
+*/
 declare const UNSTATED: {
 	/**
-	An object containing the project's containers.
-	*/
-	containers: {
-		[containerName: string]: Container<{ [stateName: string]: unknown }>;
-	};
-
-	/**
 	Whether the debugger should be enabled or not.
+
+	@default true
 	*/
 	isEnabled: boolean;
 
 	/**
-	Function that logs out the current state.
-	*/
-	logState: () => void;
+	Whether state changes should be logged to the console.
 
-	/**
-	Boolean value that represents whether state changes should be logged to the
-	console.
+	@default true
 	*/
 	logStateChanges: boolean;
 
 	/**
-	An object containing all of the state values.
+	Whether logs should be collapsed.
+
+	@default false
+	*/
+	isCollapsed: boolean;
+
+	/**
+	Your containers.
+	*/
+	containers: {
+		[containerName: string]: Container<{[stateName: string]: unknown}>;
+	};
+
+	/**
+	All of the state values.
 	*/
 	states: {
-		[containerName: string]: { [stateName: string]: unknown };
+		[containerName: string]: {[stateName: string]: unknown};
 	};
+
+	/**
+	Logs the current state of your containers.
+	*/
+	logState: () => void;
 };
 
 export default UNSTATED;
