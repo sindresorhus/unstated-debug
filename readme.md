@@ -1,4 +1,4 @@
-# unstated-debug [![Build Status](https://travis-ci.org/sindresorhus/unstated-debug.svg?branch=master)](https://travis-ci.org/sindresorhus/unstated-debug)
+# unstated-debug
 
 > Debug your [Unstated](https://github.com/jamiebuilds/unstated) containers with ease
 
