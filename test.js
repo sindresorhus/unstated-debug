@@ -1,6 +1,6 @@
 import test from 'ava';
 import {Container} from 'unstated';
-import m from '.';
+import UNSTATED from './index.js';
 
 class FixtureContainer extends Container {
 	constructor() {
@@ -19,7 +19,7 @@ test('main', t => {
 });
 
 test('exposes window global', t => {
-	t.is(m, window.UNSTATED);
+	t.is(UNSTATED, window.UNSTATED);
 	t.is(typeof window.UNSTATED, 'object');
 	t.true(window.UNSTATED.containers.FixtureContainer.state.foo);
 });

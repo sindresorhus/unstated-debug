@@ -11,7 +11,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'unstated';
 import UNSTATED from 'unstated-debug';
-import App from './components/App';
+import App from './components/App.js';
 
 UNSTATED.logStateChanges = false;
 
@@ -48,16 +48,12 @@ declare const UNSTATED: {
 	/**
 	Your containers.
 	*/
-	containers: {
-		[containerName: string]: Container<{[stateName: string]: unknown}>;
-	};
+	containers: Record<string, Container<Record<string, unknown>>>;
 
 	/**
 	All of the state values.
 	*/
-	states: {
-		[containerName: string]: {[stateName: string]: unknown};
-	};
+	states: Record<string, Record<string, unknown>>;
 
 	/**
 	Logs the current state of your containers.

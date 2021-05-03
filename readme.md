@@ -5,13 +5,11 @@
 <br>
 <img src="screenshot.png" width="1145">
 
-
 ## Install
 
 ```
 $ npm install unstated-debug
 ```
-
 
 ## Setup
 
@@ -22,7 +20,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {Provider} from 'unstated';
 import UNSTATED from 'unstated-debug';
-import App from './components/App';
+import App from './components/App.js';
 
 UNSTATED.logStateChanges = false;
 
@@ -33,7 +31,6 @@ render(
 	document.querySelector('#root')
 );
 ```
-
 
 ## Usage
 
@@ -50,14 +47,13 @@ The object contains the following properties:
 - `states` - The state objects of your containers.
 - `logState()` - Logs the current state of your containers.
 
-
 ## API
 
 ### UNSTATED
 
 ##### isEnabled
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `true`
 
 Toggle debugging.
@@ -66,7 +62,7 @@ For example, if you use this in an Electron app, you could pass it [`is.developm
 
 ##### logStateChanges
 
-Type: `boolean`<br>
+Type: `boolean`\
 Default: `true`
 
 Logs a diff for each state change to the containers. This gives you a live insight into state changes in your app.

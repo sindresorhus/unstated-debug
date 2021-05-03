@@ -1,6 +1,5 @@
-'use strict';
-const {detailedDiff} = require('deep-object-diff');
-const {__SUPER_SECRET_CONTAINER_DEBUG_HOOK__} = require('unstated');
+import {detailedDiff} from 'deep-object-diff';
+import {__SUPER_SECRET_CONTAINER_DEBUG_HOOK__} from 'unstated';
 
 const UNSTATED = {
 	isEnabled: true,
@@ -8,12 +7,9 @@ const UNSTATED = {
 	logStateChanges: true,
 	containers: {},
 	get states() {
-		const ret = {};
-		for (const [key, value] of Object.entries(this.containers)) {
-			ret[key] = value.state;
-		}
-
-		return ret;
+		return Object.fromEntries(
+			Object.entries(this.containers).map(([key, value]) => [key, value.state])
+		);
 	},
 	logState() {
 		for (const [key, value] of Object.entries(this.containers)) {
@@ -31,7 +27,7 @@ __SUPER_SECRET_CONTAINER_DEBUG_HOOK__(container => {
 
 	UNSTATED.containers[name] = container;
 
-	let prevState = container.state;
+	let previousState = container.state;
 
 	container.subscribe(() => {
 		if (!(UNSTATED.isEnabled && UNSTATED.logStateChanges)) {
@@ -39,12 +35,12 @@ __SUPER_SECRET_CONTAINER_DEBUG_HOOK__(container => {
 		}
 
 		const {state} = container;
-		const diff = detailedDiff(prevState, state);
+		const diff = detailedDiff(previousState, state);
 
 		const group = UNSTATED.isCollapsed ? console.groupCollapsed : console.group;
 		group(name);
 
-		const hasChanges = obj => Object.keys(obj).length > 0;
+		const hasChanges = object => Object.keys(object).length > 0;
 
 		if (hasChanges(diff.added)) {
 			console.log('Added\n', diff.added);
@@ -59,15 +55,16 @@ __SUPER_SECRET_CONTAINER_DEBUG_HOOK__(container => {
 		}
 
 		console.log('New state\n', state);
-		console.log('Old state\n', prevState);
+		console.log('Old state\n', previousState);
 
 		console.groupEnd(name);
 
-		prevState = state;
+		previousState = state;
 	});
 });
+
 if (typeof window !== 'undefined') {
 	window.UNSTATED = UNSTATED;
 }
 
-module.exports = UNSTATED;
+export default UNSTATED;
